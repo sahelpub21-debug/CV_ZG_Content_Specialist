@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zakaria Gallouch - Content Marketing Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root{
+    /* Vibrant masculine palette */
+    --accent-1:#0ea5e9; /* cyan/sky */
+    --accent-2:#2563eb; /* blue */
+    --accent-3:#1e3a8a; /* deep accent for text if needed */
+    --light-1:#e0f2fe; /* light cyan */
+    --light-2:#eff6ff; /* light blue */
+    --text:#1a1a1a;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:10pt; line-height:1.5; color:var(--text);
+    background:#f8fafc; padding:20px 0;
+  }
+  .page-wrapper{max-width:210mm;margin:0 auto;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+  .language-switch{
+    position:fixed;top:20px;right:20px;background:#fff;padding:8px;border-radius:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;gap:4px;z-index:1000
+  }
+  .lang-btn{
+    padding:8px 16px;border:none;background:transparent;color:#6b7280;font-size:10pt;font-weight:600;
+    cursor:pointer;border-radius:20px;transition:all .3s ease
+  }
+  .lang-btn:hover{background:#f1f5f9}
+  .lang-btn.active{
+    background:linear-gradient(135deg,var(--accent-1) 0%,var(--accent-2) 100%);
+    color:#fff
+  }
+  .lang-content{display:none}
+  .lang-content.active{display:block}
+  .container{display:grid;grid-template-columns:35% 65%;min-height:297mm}
+
+  /* LEFT SIDEBAR */
+  .sidebar{
+    background:linear-gradient(135deg,var(--accent-1) 0%,var(--accent-2) 100%);
+    color:#fff;padding:40px 30px
+  }
+  .profile-photo-container{text-align:center;margin-bottom:20px}
+  .profile-photo{
+    width:120px;height:120px;border-radius:50%;object-fit:cover;
+    border:4px solid rgba(255,255,255,.3);box-shadow:0 4px 12px rgba(0,0,0,.3)
+  }
+  .profile-section{text-align:center;margin-bottom:35px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.2)}
+  .name{font-size:24pt;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;line-height:1.2}
+  .job-title{font-size:11pt;font-weight:500;opacity:.95;letter-spacing:.5px}
+  .sidebar-section{margin-bottom:30px}
+  .sidebar-heading{
+    font-size:10pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;opacity:.9
+  }
+  .contact-item{display:flex;align-items:flex-start;margin-bottom:10px;font-size:9pt;line-height:1.4}
+  .contact-icon{margin-right:10px;opacity:.9;min-width:16px}
+  .contact-link{color:#fff;text-decoration:none;word-break:break-all}
+  .skill-item{
+    background:rgba(255,255,255,.15);padding:7px 12px;border-radius:5px;margin-bottom:6px;
+    font-size:9pt;line-height:1.3;font-weight:500
+  }
+  .language-item{display:flex;justify-content:space-between;margin-bottom:8px;font-size:9pt}
+  .language-name{font-weight:600}
+  .language-level{opacity:.9}
+
+  /* RIGHT MAIN CONTENT */
+  .main-content{padding:40px 40px 40px 35px;background:#fff}
+  .summary{margin-bottom:30px;padding-bottom:25px;border-bottom:2px solid var(--light-1)}
+  .summary-text{font-size:10pt;line-height:1.6;color:#374151;text-align:justify}
+  .section{margin-bottom:28px}
+  .section-title{
+    font-size:13pt;font-weight:800;color:var(--accent-2);margin-bottom:16px;text-transform:uppercase;
+    letter-spacing:.5px;position:relative;padding-bottom:8px
+  }
+  .section-title:after{
+    content:'';position:absolute;left:0;bottom:0;width:50px;height:3px;
+    background:linear-gradient(90deg,var(--accent-1) 0%,var(--accent-2) 100%)
+  }
+  .experience-item{margin-bottom:20px;page-break-inside:avoid}
+  .experience-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .job-role{font-size:11pt;font-weight:700;color:var(--text)}
+  .job-dates{font-size:9pt;color:#64748b;font-weight:600}
+  .company-name{font-size:10pt;color:var(--accent-2);font-weight:600;margin-bottom:6px}
+  .job-description{font-size:9.5pt;color:#475569;margin-bottom:8px;line-height:1.5}
+  .achievements{list-style:none;padding-left:0}
+  .achievements li{
+    padding-left:16px;position:relative;margin-bottom:5px;font-size:9.5pt;color:#374151;line-height:1.5
+  }
+  .achievements li:before{
+    content:"▸";position:absolute;left:0;color:var(--accent-2);font-weight:700
+  }
+  .education-item{margin-bottom:14px}
+  .degree-title{font-size:10.5pt;font-weight:700;color:var(--text);margin-bottom:2px}
+  .institution{font-size:9.5pt;color:#64748b}
+  .metrics-highlight{
+    background:linear-gradient(135deg,var(--light-1) 0%,var(--light-2) 100%);
+    padding:14px 18px;border-radius:8px;margin:16px 0;border-left:4px solid var(--accent-2)
+  }
+  .metrics-text{font-size:9.5pt;color:#374151;font-weight:600}
+  @media print{
+    body{background:#fff;padding:0}
+    .page-wrapper{box-shadow:none}
+    .language-switch{display:none}
+  }
+</style>
+</head>
+<body>
+  <!-- Language Switch -->
+  <div class="language-switch">
+    <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
+  </div>
+
+  <div class="page-wrapper">
+
+  <!-- ================= ENGLISH ================= -->
+  <div class="lang-content active" id="content-en">
+    <div class="container">
+      <!-- LEFT -->
+      <div class="sidebar">
+        <div class="profile-photo-container">
+          <img src="https://github.com/sahelpub21-debug/CV_Zakaria_Gallouch/blob/main/profil.png?raw=true" alt="Zakaria Gallouch" class="profile-photo">
+        </div>
+        <div class="profile-section">
+          <div class="name">ZAKARIA<br>GALLOUCH</div>
+          <div class="job-title">Content Marketing<br>Manager</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Contact</div>
+          <div class="contact-item"><span class="contact-icon">✉</span><span>ga.zakaria@gmail.com</span></div>
+          <div class="contact-item"><span class="contact-icon">📱</span><span>+212 627 056 916</span></div>
+          <div class="contact-item"><span class="contact-icon">📍</span><span>Casablanca, Morocco</span></div>
+          <div class="contact-item"><span class="contact-icon">🔗</span><a class="contact-link" href="https://linkedin.com/in/zakaria-gallouch">linkedin.com/in/zakaria-gallouch</a></div>
+          <div class="contact-item"><span class="contact-icon">🌐</span><a class="contact-link" href="https://codepen.io/sahelpub21/full/ByjdErK">Portfolio</a></div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Expertise</div>
+          <div class="skill-item">Content Strategy & Planning</div>
+          <div class="skill-item">SEO & Organic Growth</div>
+          <div class="skill-item">Social Media Marketing</div>
+          <div class="skill-item">Campaign Management</div>
+          <div class="skill-item">Video Content Production</div>
+          <div class="skill-item">Brand Storytelling</div>
+          <div class="skill-item">Analytics & Performance</div>
+          <div class="skill-item">Lead Generation</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Tools & Platforms</div>
+          <div class="skill-item">HubSpot Marketing</div>
+          <div class="skill-item">Google Analytics & GSC</div>
+          <div class="skill-item">WordPress & CMS</div>
+          <div class="skill-item">Canva & Adobe Suite</div>
+          <div class="skill-item">Social Media Management</div>
+          <div class="skill-item">Email Marketing Platforms</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Languages</div>
+          <div class="language-item"><span class="language-name">Arabic</span><span class="language-level">Native</span></div>
+          <div class="language-item"><span class="language-name">French</span><span class="language-level">Native</span></div>
+          <div class="language-item"><span class="language-name">English</span><span class="language-level">Professional</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="main-content">
+        <div class="summary">
+          <p class="summary-text">
+            Results-driven Content Marketing Manager with 10+ years creating high-performing content strategies for B2B and B2C brands. Expert in SEO-driven content, social growth, and multi-channel campaigns that drive measurable business results. Proven ability to build content operations from scratch, manage editorial workflows, and scale organic reach through strategic storytelling and data-driven optimization.
+          </p>
+          <div class="metrics-highlight">
+            <div class="metrics-text">✦ 10M+ Organic Reach ✦ 2.1M+ Social Engagement ✦ €100K+ Earned Media ✦ 150% Audience Growth ✦ 60+ Content Campaigns</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Professional Experience</div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Content Manager</div>
+              <div class="job-dates">Mar 2025 – Jul 2025</div>
+            </div>
+            <div class="company-name">ABL Corporation – International Investment Fund</div>
+            <p class="job-description">Led content strategy across 4 business verticals. Built SEO frameworks, managed editorial calendars, and created thought leadership content for executive audiences.</p>
+            <ul class="achievements">
+              <li>Created 4 complete content strategies with 6-month editorial roadmaps</li>
+              <li>Wrote 30+ SEO-optimized articles generating qualified investor leads</li>
+              <li>Managed LinkedIn corporate strategy delivering consistent engagement</li>
+              <li>Built content governance system adopted by internal marketing teams</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Head of Communications (Content Focus)</div>
+              <div class="job-dates">Feb 2022 – Feb 2025</div>
+            </div>
+            <div class="company-name">Fan4All – SportTech E-Commerce Platform</div>
+            <p class="job-description">Owned all content channels. Created brand voice, managed social media, and produced conversion-driven campaigns for premium experiences.</p>
+            <ul class="achievements">
+              <li>Built brand storytelling strategy from launch to growth phase</li>
+              <li>Delivered 2.1M reach across social channels with 14.45% LinkedIn engagement</li>
+              <li>Generated €100K+ earned media value through strategic PR content</li>
+              <li>Created conversion-focused campaigns for VIP sports experiences</li>
+              <li>Managed end-to-end content operations: planning, production, distribution, analytics</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Content Strategist & Brand Manager</div>
+              <div class="job-dates">2020 – 2022</div>
+            </div>
+            <div class="company-name">Freelance Consulting (CIO Mag, Glovo, ATDA)</div>
+            <p class="job-description">Delivered content marketing and brand campaigns for tech, e-commerce, and events across African markets.</p>
+            <ul class="achievements">
+              <li><strong>CIO Mag:</strong> Produced 60+ tech articles & multimedia for a pan-African audience; led AgriTech editorial series with video interviews</li>
+              <li><strong>Glovo Morocco:</strong> Created “Humans of Glovo” video series (1.3M reach, 13.5K engagements) during a brand crisis</li>
+              <li><strong>ATDA Summit:</strong> Led event content strategy delivering 3M organic reach and 42% LinkedIn growth (+1,500 followers)</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Account Manager & Content Lead</div>
+              <div class="job-dates">Jan 2017 – Jan 2020</div>
+            </div>
+            <div class="company-name">Strateus Group – PR Media (Ogilvy/Edelman Affiliate)</div>
+            <p class="job-description">Managed integrated marketing campaigns for global brands. Built content strategies, media kits, and activations across industries.</p>
+            <ul class="achievements">
+              <li>Content strategy for Visa, IKEA, Spotify, Nokia, Casio</li>
+              <li>Campaign content for 20+ events (press conferences, product launches)</li>
+              <li>IKEA “Living With Children” launch (OOH, TV, digital)</li>
+              <li>Messaging frameworks & media kits for SUPINFO Morocco</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Content & Communications Manager</div>
+              <div class="job-dates">2013 – 2017</div>
+            </div>
+            <div class="company-name">Com Par Magie – Communications Agency</div>
+            <p class="job-description">Produced content campaigns for corporate brands across employer branding, product launches, and digital activations.</p>
+            <ul class="achievements">
+              <li>360° content campaigns for Phone Group</li>
+              <li>Employer-branding content & recruitment materials</li>
+              <li>Owned web content, social channels, lead-gen initiatives</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Education & Certifications</div>
+          <div class="education-item">
+            <div class="degree-title">Master's in Corporate Communications</div>
+            <div class="institution">University of Versailles (ComSup) – 2017</div>
+          </div>
+          <div class="education-item">
+            <div class="degree-title">HubSpot Content Marketing Certification</div>
+            <div class="institution">HubSpot Academy – 2025</div>
+          </div>
+          <div class="education-item">
+            <div class="degree-title">HubSpot Marketing Software & CRM Certification</div>
+            <div class="institution">HubSpot Academy – 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FRENCH ================= -->
+  <div class="lang-content" id="content-fr">
+    <div class="container">
+      <!-- LEFT -->
+      <div class="sidebar">
+        <div class="profile-photo-container">
+          <img src="https://github.com/sahelpub21-debug/CV_Zakaria_Gallouch/blob/main/profil.png?raw=true" alt="Zakaria Gallouch" class="profile-photo">
+        </div>
+        <div class="profile-section">
+          <div class="name">ZAKARIA<br>GALLOUCH</div>
+          <div class="job-title">Responsable Marketing<br>de Contenu</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Contact</div>
+          <div class="contact-item"><span class="contact-icon">✉</span><span>ga.zakaria@gmail.com</span></div>
+          <div class="contact-item"><span class="contact-icon">📱</span><span>+212 627 056 916</span></div>
+          <div class="contact-item"><span class="contact-icon">📍</span><span>Casablanca, Maroc</span></div>
+          <div class="contact-item"><span class="contact-icon">🔗</span><a class="contact-link" href="https://linkedin.com/in/zakaria-gallouch">linkedin.com/in/zakaria-gallouch</a></div>
+          <div class="contact-item"><span class="contact-icon">🌐</span><a class="contact-link" href="https://codepen.io/sahelpub21/full/ByjdErK">Portfolio</a></div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Expertise</div>
+          <div class="skill-item">Stratégie & planification éditoriale</div>
+          <div class="skill-item">SEO & croissance organique</div>
+          <div class="skill-item">Marketing social media</div>
+          <div class="skill-item">Pilotage de campagnes</div>
+          <div class="skill-item">Production de contenus vidéo</div>
+          <div class="skill-item">Brand storytelling</div>
+          <div class="skill-item">Analytics & performance</div>
+          <div class="skill-item">Lead generation</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Outils & Plateformes</div>
+          <div class="skill-item">HubSpot Marketing</div>
+          <div class="skill-item">Google Analytics & GSC</div>
+          <div class="skill-item">WordPress & CMS</div>
+          <div class="skill-item">Canva & Adobe Suite</div>
+          <div class="skill-item">Gestion des réseaux sociaux</div>
+          <div class="skill-item">Plateformes d’email marketing</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Langues</div>
+          <div class="language-item"><span class="language-name">Arabe</span><span class="language-level">Langue maternelle</span></div>
+          <div class="language-item"><span class="language-name">Français</span><span class="language-level">Langue maternelle</span></div>
+          <div class="language-item"><span class="language-name">Anglais</span><span class="language-level">Professionnel</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="main-content">
+        <div class="summary">
+          <p class="summary-text">
+            Responsable marketing de contenu orienté résultats, avec 10+ ans d’expérience à concevoir des stratégies éditoriales performantes pour des marques B2B et B2C. Expertise en contenu SEO, croissance des communautés et campagnes multicanales générant des impacts mesurables. Capable de bâtir une organisation éditoriale from scratch, d’orchestrer des workflows cross-fonctionnels et de scaler le reach organique par un storytelling stratégique et des optimisations data-driven.
+          </p>
+          <div class="metrics-highlight">
+            <div class="metrics-text">✦ 10M+ de reach organique ✦ 2,1M+ d’engagement social ✦ €100K+ d’earned media ✦ +150% d’audience ✦ 60+ campagnes</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Expériences Professionnelles</div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Content Manager</div>
+              <div class="job-dates">Mars 2025 – Juil. 2025</div>
+            </div>
+            <div class="company-name">ABL Corporation – Fonds d’investissement international</div>
+            <p class="job-description">Pilotage de la stratégie contenu sur 4 verticales. Mise en place de frameworks SEO, gestion des plannings éditoriaux et production de contenus de thought leadership pour audiences exécutives.</p>
+            <ul class="achievements">
+              <li>4 stratégies de contenu complètes avec roadmaps éditoriales sur 6 mois</li>
+              <li>30+ articles SEO optimisés générant des leads investisseurs qualifiés</li>
+              <li>Animation de la stratégie LinkedIn corporate avec engagement récurrent</li>
+              <li>Déploiement d’un système de gouvernance éditoriale adopté en interne</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Responsable Communication (focus contenu)</div>
+              <div class="job-dates">Fév. 2022 – Fév. 2025</div>
+            </div>
+            <div class="company-name">Fan4All – Plateforme e-commerce SportTech</div>
+            <p class="job-description">Propriété éditoriale de bout en bout. Définition de la voix de marque, gestion des réseaux sociaux et campagnes orientées conversion pour des expériences premium.</p>
+            <ul class="achievements">
+              <li>Architecture de brand storytelling du lancement à la phase de croissance</li>
+              <li>2,1M de reach social cumulé et 14,45% d’engagement moyen sur LinkedIn</li>
+              <li>€100K+ d’earned media via un contenu RP stratégique</li>
+              <li>Campagnes orientées conversion pour expériences sportives VIP</li>
+              <li>Chaîne éditoriale end-to-end : planning, production, diffusion, analytics</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Stratège Contenu & Brand Manager (Freelance)</div>
+              <div class="job-dates">2020 – 2022</div>
+            </div>
+            <div class="company-name">CIO Mag, Glovo, ATDA (missions Afrique)</div>
+            <p class="job-description">Conception et exécution de campagnes éditoriales pour des acteurs tech, e-commerce et events sur plusieurs marchés africains.</p>
+            <ul class="achievements">
+              <li><strong>CIO Mag :</strong> 60+ articles et formats multimédias ; série AgriTech (interviews vidéo)</li>
+              <li><strong>Glovo Maroc :</strong> Série “Humans of Glovo” (1,3M de reach, 13,5K engagements) en phase de crise</li>
+              <li><strong>Sommet ATDA :</strong> 3M de reach organique, +42% de croissance LinkedIn (+1 500 abonnés)</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Account Manager & Lead Contenu</div>
+              <div class="job-dates">Jan. 2017 – Jan. 2020</div>
+            </div>
+            <div class="company-name">Strateus Group – PR Media (affilié Ogilvy/Edelman)</div>
+            <p class="job-description">Gestion de campagnes intégrées pour des marques internationales. Stratégies éditoriales, kits médias et activations multi-secteurs.</p>
+            <ul class="achievements">
+              <li>Stratégies contenu pour Visa, IKEA, Spotify, Nokia, Casio</li>
+              <li>Contenus de campagne pour 20+ événements (conférences de presse, lancements)</li>
+              <li>Lancement IKEA « Living With Children » (affichage, TV, digital)</li>
+              <li>Frameworks de messages & media kits pour SUPINFO Maroc</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="job-role">Responsable Contenu & Communication</div>
+              <div class="job-dates">2013 – 2017</div>
+            </div>
+            <div class="company-name">Com Par Magie – Agence de communication</div>
+            <p class="job-description">Production de campagnes pour des marques corporate (marque employeur, lancements produits, activations digitales).</p>
+            <ul class="achievements">
+              <li>Campagnes 360° pour Phone Group (BPO)</li>
+              <li>Dispositifs de marque employeur & supports de recrutement</li>
+              <li>Gestion des contenus web, réseaux sociaux et leviers d’acquisition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Formation & Certifications</div>
+          <div class="education-item">
+            <div class="degree-title">Master en communication des organisations</div>
+            <div class="institution">Université de Versailles (ComSup) – 2017</div>
+          </div>
+          <div class="education-item">
+            <div class="degree-title">Certification Content Marketing</div>
+            <div class="institution">HubSpot Academy – 2025</div>
+          </div>
+          <div class="education-item">
+            <div class="degree-title">Certification HubSpot Marketing Software & CRM</div>
+            <div class="institution">HubSpot Academy – 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /page-wrapper -->
+
+  <script>
+    function switchLang(lang){
+      const en = document.getElementById('content-en');
+      const fr = document.getElementById('content-fr');
+      const btnEn = document.getElementById('btn-en');
+      const btnFr = document.getElementById('btn-fr');
+
+      if(lang === 'en'){
+        en.classList.add('active'); fr.classList.remove('active');
+        btnEn.classList.add('active'); btnFr.classList.remove('active');
+        document.documentElement.setAttribute('lang','en');
+      }else{
+        fr.classList.add('active'); en.classList.remove('active');
+        btnFr.classList.add('active'); btnEn.classList.remove('active');
+        document.documentElement.setAttribute('lang','fr');
+      }
+    }
+  </script>
+</body>
+</html>
